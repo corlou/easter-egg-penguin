@@ -73,25 +73,25 @@
       // It matches, so let's do a thing 🎉
       slideThePenguin();
       // Now lets clear their pressed keys history, so we can listen for it again
-      // (otherwise the keysPressed string will just keep growing, eg 'catcatcat' and will never match again)
+      // (otherwise the keysPressed string will just keep growing, eg 'penpenpen' and will never match again)
       keysPressed = '';
     }
 
     // If they're writing something which doesn't start with our secret code, then reset keysPressed
-    // because it will never match (eg if they start typing 'm', they clearly aren't spelling cat)
+    // because it will never match (eg if they start typing 'm', they clearly aren't spelling penguin)
     const firstSecretCharacter = secretCode[0];
     if (!keysPressed.startsWith(firstSecretCharacter)) {
       keysPressed = '';
     }
 
     // If they're writing something which isn't part of our secret code, reset it
-    // (eg 'co' will never end up as cat, despite the church's protests)
+    // (eg 'pa' will never end up as pen, despite the church's protests)
     if (!secretCode.includes(keysPressed)) {
       keysPressed = '';
     }
 
     // If whatever they're typing is now longer than our secret code, then they must've got it wrong, so
-    // let's reset keysPressed so they can try again (eg if they typed 'caaa' so far, then we gotta reset because
+    // let's reset keysPressed so they can try again (eg if they typed 'pennn' so far, then we gotta reset because
     //  that'll never end up right if they keep going)
     const secretCodeLength = secretCode.length;
     const keysPressedLength = keysPressed.length;
